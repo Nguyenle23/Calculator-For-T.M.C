@@ -1,0 +1,90 @@
+.golden-container {
+  margin-left: 120px;
+  margin-top: 40px;
+}
+
+.algorithm {
+  margin-bottom: 40px;
+}
+
+input {
+  padding: 8px 8px 8px 44px;
+  height: 40px;
+  font-size: 16px;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border: 1px solid black;
+}
+
+.function,
+.variables,
+.error,
+.types {
+  position: relative;
+  width: 30%;
+  margin-bottom: 16px;
+}
+
+.algorithm-function {
+  width: 100%;
+}
+
+.text-inside {
+  position: absolute;
+  padding: 8px;
+  font-style: normal;
+  background-color: var(--primary-color);
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  color: white;
+  text-align: center;
+  min-width: 40px;
+}
+
+.algorithm-variable {
+  width: 30%;
+  margin-right: 16px;
+}
+
+.algorithm-error {
+  width: 30%;
+}
+
+.types {
+  display: flex;
+}
+
+.algorithm-type {
+  display: flex;
+  align-items: center;
+  min-width: 30%;
+  font-size: 20px;
+}
+
+.algorithm-type > input {
+  width: 20px;
+  margin-right: 8px;
+}
+
+.algorithm-submit {
+  width: 30%;
+  height: 40px;
+  border-radius: 4px;
+  border: none;
+  font-size: 20px;
+  background-color: #c9c9c9;
+}
+
+.algorithm-submit:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+/* SOLUTION */
+.step {
+  margin-top: 20px;
+}
+
+.substep {
+  margin: 10px 36px;
+}

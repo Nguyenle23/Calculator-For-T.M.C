@@ -1,0 +1,19 @@
+.header {
+  width: 100%;
+  height: 10vh;
+  background-color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-brand > span {
+  font-size: var(--brand-size);
+  font-weight: bolder;
+  color: white;
+}
+
+.header-brand > span,
+.header-search {
+  margin: 0 48px;
+}

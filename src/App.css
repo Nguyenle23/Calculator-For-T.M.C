@@ -1,0 +1,20 @@
+:root {
+  --primary-color: #202020;
+  --brand-size: 30px;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@200;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+html {
+  position: relative;
+  background-color: #303030;
+  font-family: "Kanit", sans-serif;
+  color: white;
+}
