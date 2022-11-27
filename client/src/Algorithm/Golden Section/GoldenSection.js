@@ -24,7 +24,6 @@ export default function GoldenSection() {
     e.preventDefault();
     const getTest = async () => {
       const request = await axios.post("http://localhost:4000/test", inputData);
-      // console.log(inputData);
       setDatas(request.data.data);
       setStatus(true);
     };
@@ -45,6 +44,7 @@ export default function GoldenSection() {
             className="algorithm-function"
             name="equation"
             onChange={handleChange}
+            required
           />
         </div>
 
@@ -86,11 +86,11 @@ export default function GoldenSection() {
 
         <div className="types">
           <label className="algorithm-type">
-            <input placeholder="" type="radio" value="minimum" name="type" />
+            <input type="radio" value="minimum" name="type" onChange={handleChange}/>
             Minimum
           </label>
           <label className="algorithm-type">
-            <input placeholder="" type="radio" value="maximum" name="type" />
+            <input type="radio" value="maximum" name="type" onChange={handleChange}/>
             Maximum
           </label>
         </div>
