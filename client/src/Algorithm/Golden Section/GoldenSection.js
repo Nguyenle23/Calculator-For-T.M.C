@@ -13,7 +13,7 @@ export default function GoldenSection() {
       top: (window.innerHeight * 75) / 100,
       behavior: "smooth",
     });
-  }, [status]);
+  }, [datas]);
 
   const handleChange = (e) => {
     const value = e.target.value;
