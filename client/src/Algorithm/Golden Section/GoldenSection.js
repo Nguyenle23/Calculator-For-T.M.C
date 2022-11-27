@@ -1,6 +1,6 @@
 import React from "react";
 import "./GoldenSection.css";
-import variables from "../Variables";
+import variables from "./Variables";
 
 // ============== fake data ================ //
 

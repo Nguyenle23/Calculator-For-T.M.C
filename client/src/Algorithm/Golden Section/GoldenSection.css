@@ -39,6 +39,7 @@ input {
   color: white;
   text-align: center;
   min-width: 40px;
+  max-height: 40px;
 }
 
 .algorithm-variable {
