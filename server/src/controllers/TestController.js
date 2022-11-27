@@ -35,15 +35,15 @@ module.exports = {
       if (i == 0) {
         obj[i] = {
           iterator: i,
-          xl: x_l,
-          x2: x2,
-          f2: f2,
-          x1: x1,
-          f1: f1,
-          xu: x_u,
-          xopt: x2,
-          d: d_constant(x_u, x_l),
-          ea: (1 - R) * ((x_u - x_l) / x2) * 100,
+          xl: parseFloat(x_l).toFixed(5),
+          x2: parseFloat(x2).toFixed(5),
+          f2: parseFloat(f2).toFixed(5),
+          x1: parseFloat(x1).toFixed(5),
+          f1: parseFloat(f1).toFixed(5),
+          xu: parseFloat(x_u).toFixed(5),
+          xopt: parseFloat(x2).toFixed(5),
+          d: parseFloat(d_constant(x_u, x_l)).toFixed(5),
+          ea: parseFloat((1 - R) * ((x_u - x_l) / x2) * 100).toFixed(4),
         }
       } else if (f2 > f1) {
         x_l = x2;
@@ -53,15 +53,15 @@ module.exports = {
         f2 = equation(x2);
         obj[i] = {
           iterator: i,
-          xl: x_l,
-          x2: x2,
-          f2: f2,
-          x1: x1,
-          f1: f1,
-          xu: x_u,
-          xopt: x2,
-          d: d_constant(x_u, x_l),
-          ea: (1 - R) * ((x_u - x_l) / x2) * 100,
+          xl: parseFloat(x_l).toFixed(5),
+          x2: parseFloat(x2).toFixed(5),
+          f2: parseFloat(f2).toFixed(5),
+          x1: parseFloat(x1).toFixed(5),
+          f1: parseFloat(f1).toFixed(5),
+          xu: parseFloat(x_u).toFixed(5),
+          xopt: parseFloat(x2).toFixed(5),
+          d: parseFloat(d_constant(x_u, x_l)).toFixed(5),
+          ea: parseFloat((1 - R) * ((x_u - x_l) / x2) * 100).toFixed(4),
         }
         if (obj[i].ea < Es) {
           break;
@@ -74,15 +74,15 @@ module.exports = {
         f2 = equation(x2);
         obj[i] = {
           iterator: i,
-          xl: x_l,
-          x2: x2,
-          f2: f2,
-          x1: x1,
-          f1: f1,
-          xu: x_u,
-          xopt: x1,
-          d: d_constant(x_u, x_l),
-          ea: (1 - R) * ((x_u - x_l) / x1) * 100,
+          xl: parseFloat(x_l).toFixed(5),
+          x2: parseFloat(x2).toFixed(5),
+          f2: parseFloat(f2).toFixed(5),
+          x1: parseFloat(x1).toFixed(5),
+          f1: parseFloat(f1).toFixed(5),
+          xu: parseFloat(x_u).toFixed(5),
+          xopt: parseFloat(x2).toFixed(5),
+          d: parseFloat(d_constant(x_u, x_l)).toFixed(5),
+          ea: parseFloat((1 - R) * ((x_u - x_l) / x2) * 100).toFixed(4),
         }
         if (obj[i].ea < Es) {
           break;
