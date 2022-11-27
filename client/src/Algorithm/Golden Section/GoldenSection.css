@@ -88,3 +88,13 @@ input {
 .substep {
   margin: 10px 36px;
 }
+
+table {
+  width: 90%;
+}
+
+table, th, td {
+  text-align: center;
+  border: 1px solid white;
+  border-collapse: collapse;
+}
