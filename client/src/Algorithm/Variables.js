@@ -24,7 +24,7 @@ const f_xl = (
 
 const x_u = (
   <>
-    x<sub>l</sub>
+    x<sub>u</sub>
   </>
 );
 

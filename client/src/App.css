@@ -9,7 +9,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  user-select: none;
+  /* user-select: none; */
 }
 
 html {
@@ -17,4 +17,19 @@ html {
   background-color: #303030;
   font-family: "Kanit", sans-serif;
   color: white;
+}
+
+input {
+  padding: 8px 8px 8px 44px;
+  height: 40px;
+  font-size: 16px;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border: 1px solid black;
+}
+
+::-webkit-input-placeholder { /* Edge */
+  font-size: 14px;
+  transform: translateY(8%);
+  
 }

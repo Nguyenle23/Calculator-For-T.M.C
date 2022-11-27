@@ -7,15 +7,6 @@
   margin-bottom: 40px;
 }
 
-input {
-  padding: 8px 8px 8px 44px;
-  height: 40px;
-  font-size: 16px;
-  border-top-left-radius: 8px;
-  border-bottom-left-radius: 8px;
-  border: 1px solid black;
-}
-
 .function,
 .variables,
 .error,
@@ -40,6 +31,11 @@ input {
   text-align: center;
   min-width: 40px;
   max-height: 40px;
+}
+
+.example {
+  font-size: 14px;
+  font-style: italic;
 }
 
 .algorithm-variable {
@@ -83,7 +79,7 @@ input {
 
 /* SOLUTION */
 .step {
-  margin-top: 20px;
+  margin-top: 16px;
 }
 
 .substep {
@@ -99,3 +95,21 @@ table, th, td {
   border: 1px solid white;
   border-collapse: collapse;
 }
+
+th, td {
+  max-width: 40px;
+  overflow: scroll;
+  padding: 8px;
+  /* overflow-y: hidden;
+  overflow-x: hidden; */
+}
+
+th::-webkit-scrollbar {
+  display: none;
+}
+
+td::-webkit-scrollbar {
+  display: none;
+}
+
+
