@@ -3,8 +3,13 @@
   margin-top: 40px;
 }
 
+.main-title {
+  font-size: 32px;
+}
+
 .algorithm {
   margin-bottom: 40px;
+  min-height: 300px;
 }
 
 .function,
@@ -17,13 +22,15 @@
 }
 
 .algorithm-function {
-  width: 100%;
+  width: 25rem;
 }
 
 .text-inside {
   position: absolute;
   padding: 8px;
+  font-size: 16px;
   font-style: normal;
+  font-weight: 300;
   background-color: var(--primary-color);
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
@@ -39,12 +46,12 @@
 }
 
 .algorithm-variable {
-  width: 30%;
+  width: 8rem;
   margin-right: 16px;
 }
 
 .algorithm-error {
-  width: 30%;
+  width: 8rem;
 }
 
 .types {
@@ -54,7 +61,7 @@
 .algorithm-type {
   display: flex;
   align-items: center;
-  min-width: 30%;
+  min-width: 8rem;
   font-size: 20px;
 }
 
@@ -64,12 +71,11 @@
 }
 
 .algorithm-submit {
-  width: 30%;
+  width: 25rem;
   height: 40px;
-  border-radius: 4px;
+  border-radius: 8px;
   border: none;
   font-size: 20px;
-  background-color: #c9c9c9;
 }
 
 .algorithm-submit:hover {
@@ -83,6 +89,7 @@
 }
 
 .substep {
+  font-weight: 300;
   margin: 10px 36px;
 }
 
@@ -90,13 +97,16 @@ table {
   width: 90%;
 }
 
-table, th, td {
+table,
+th,
+td {
   text-align: center;
   border: 1px solid white;
   border-collapse: collapse;
 }
 
-th, td {
+th,
+td {
   max-width: 40px;
   overflow: scroll;
   padding: 8px;
@@ -111,5 +121,3 @@ th::-webkit-scrollbar {
 td::-webkit-scrollbar {
   display: none;
 }
-
-

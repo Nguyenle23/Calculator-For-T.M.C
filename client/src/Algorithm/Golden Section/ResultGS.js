@@ -3,7 +3,7 @@ import variables from "../Variables";
 import "./GoldenSection.css";
 
 function ResultGS({ datas }) {
-  const { f_x1, f_x2, x_l, x_u, x_opt, x_1, x_2, e_a, f_xl, f_xu } = variables;
+  const { f_x1, f_x2, x_l, x_u, x_opt, x_1, x_2, e_a } = variables;
   return (
     <div className="algorithm-solution">
       <h1>SOLUTION</h1>

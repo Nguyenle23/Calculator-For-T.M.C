@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 import "./GoldenSection.css";
 import ResultGS from "./ResultGS";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 
 export default function GoldenSection() {
   const [inputData, setInputData] = useState(null);
   const [datas, setDatas] = useState([]);
-  const [status, setStatus] = useState(false);
+  const [status, setStatus] = useState({ open: false, error: false });
 
-  useEffect(() => {
+  const scrollSession = useEffect(() => {
     window.scrollTo({
-      top: (window.innerHeight * 75) / 100,
+      top: 500,
       behavior: "smooth",
     });
   }, [datas]);
@@ -23,9 +23,16 @@ export default function GoldenSection() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const getTest = async () => {
-      const request = await axios.post("http://localhost:4000/test", inputData);
-      setDatas(request.data.data);
-      setStatus(true);
+      try {
+        const request = await axios.post(
+          "http://localhost:4000/test",
+          inputData
+        );
+        setDatas(request.data.data);
+        setStatus({ open: true, error: false });
+      } catch {
+        setStatus({ open: false, error: true });
+      }
     };
     getTest();
   };
@@ -86,20 +93,37 @@ export default function GoldenSection() {
 
         <div className="types">
           <label className="algorithm-type">
-            <input type="radio" value="minimum" name="type" onChange={handleChange}/>
+            <input
+              style={{ boxShadow: "none" }}
+              type="radio"
+              value="minimum"
+              name="type"
+              onChange={handleChange}
+            />
             Minimum
           </label>
           <label className="algorithm-type">
-            <input type="radio" value="maximum" name="type" onChange={handleChange}/>
+            <input
+              style={{ boxShadow: "none" }}
+              type="radio"
+              value="maximum"
+              name="type"
+              onChange={handleChange}
+            />
             Maximum
           </label>
         </div>
-        <button className="algorithm-submit" onClick={handleSubmit}>
+        <button className="btn algorithm-submit" onClick={handleSubmit}>
           SUBMIT
         </button>
+        {status.error ? (
+          <h3 className="error-call">Wrong syntax, please try again!</h3>
+        ) : (
+          ""
+        )}
       </form>
 
-      {status ? <ResultGS datas={datas} /> : <></>}
+      {status.open ? <ResultGS datas={datas} /> : <></>}
     </div>
   );
 }
