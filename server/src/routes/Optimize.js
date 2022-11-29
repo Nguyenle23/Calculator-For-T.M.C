@@ -3,6 +3,6 @@ const router = express.Router();
 
 const optimizeController = require('../controllers/OptimizeController');
 
-router.post('/', optimizeController.goldenSectionSearch);
+router.post('/goldenSectionSearch', optimizeController.goldenSectionSearch);
 
 module.exports = router;
