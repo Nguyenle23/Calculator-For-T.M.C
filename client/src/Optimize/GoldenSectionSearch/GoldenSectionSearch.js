@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
-import "./GoldenSection.css";
-import ResultGS from "./ResultGS";
-import axios, { AxiosError } from "axios";
+import "./GoldenSectionSearch.css";
+import TableGSS from "./TableGSS";
+import axios from "axios";
 
-export default function GoldenSection() {
+export default function GoldenSectionSearch() {
   const [inputData, setInputData] = useState(null);
   const [datas, setDatas] = useState([]);
-  const [status, setStatus] = useState({ open: false, error: false });
+  const [status, setStatus] = useState(null);
 
-  const scrollSession = useEffect(() => {
+  useEffect(() => {
     window.scrollTo({
       top: 500,
       behavior: "smooth",
@@ -24,14 +24,13 @@ export default function GoldenSection() {
     e.preventDefault();
     const getTest = async () => {
       try {
-        const request = await axios.post(
-          "http://localhost:4000/test",
-          inputData
-        );
-        setDatas(request.data.data);
-        setStatus({ open: true, error: false });
-      } catch {
-        setStatus({ open: false, error: true });
+        await axios.post("http://localhost:4000/optimize/goldenSectionSearch", inputData)
+          .then((res) => {
+            setDatas(res.data.data);
+            setStatus(null);
+          })
+      } catch (error) {
+        setStatus(error.response.data);
       }
     };
     getTest();
@@ -40,7 +39,7 @@ export default function GoldenSection() {
   return (
     <div className="golden-container">
       <form className="algorithm">
-        <h1 className="main-title">GOLDEN SECTION</h1>
+        <h1 className="main-title">GOLDEN SECTION SEARCH</h1>
         <br />
         <div className="function">
           <i className="text-inside">f(x)</i>
@@ -80,7 +79,7 @@ export default function GoldenSection() {
 
         <div className="error">
           <i className="text-inside">
-            e<sub>s</sub>
+            e<sub>s</sub>%
           </i>
           <input
             placeholder=""
@@ -116,14 +115,13 @@ export default function GoldenSection() {
         <button className="btn algorithm-submit" onClick={handleSubmit}>
           SUBMIT
         </button>
-        {status.error ? (
-          <h3 className="error-call">Wrong syntax, please try again!</h3>
-        ) : (
-          ""
-        )}
+        {status && (
+            <div className="error-call">
+              <p>{status}</p>
+            </div>
+          )}
       </form>
-
-      {status.open ? <ResultGS datas={datas} /> : <></>}
+      {datas.length === 0 ? <></> : <TableGSS datas={datas} />}
     </div>
   );
 }

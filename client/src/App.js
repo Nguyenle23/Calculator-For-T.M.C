@@ -1,15 +1,13 @@
 import React from "react";
 import "./App.css";
 import Header from "./component/Header/Header";
-import GoldenSection from "./Algorithm/Golden Section/GoldenSection";
+import GoldenSectionSearch from "./Optimize/GoldenSectionSearch/GoldenSectionSearch";
 
-function App() {
+export default function App() {
   return (
     <div className="app-container">
       <Header />
-      <GoldenSection />
+      <GoldenSectionSearch />
     </div>
   );
 }
-
-export default App;
