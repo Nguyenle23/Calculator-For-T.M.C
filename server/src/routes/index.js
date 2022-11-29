@@ -1,7 +1,7 @@
-const testRouter = require('./test');
+const optimizeRouter = require('./Optimize');
 
 function route(app) {
-    app.use('/test', testRouter);
+    app.use('/optimize', optimizeRouter);
 }
 
 module.exports = route;
