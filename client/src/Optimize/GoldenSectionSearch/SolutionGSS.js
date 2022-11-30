@@ -1,6 +1,6 @@
 import React from "react";
-import variables from "./Variables";
-import "./GoldenSectionSearch.css";
+import variables from "../Variables";
+import "../../css/Optimize/twoVariables.css";
 
 export default function SolutionGSS({ data }) {
   const { f_x1, f_x2, x_l, x_u, x_opt, x_1, x_2, e_a } = variables;
