@@ -2,7 +2,7 @@ import React from "react";
 import variables from "../Variables";
 import "../../css/Optimize/twoVariables.css";
 
-export default function TableGSS({ datas }) {
+export default function SolutionGSS({ data }) {
   const { f_x1, f_x2, x_l, x_u, x_opt, x_1, x_2, e_a } = variables;
   return (
     <div className="algorithm-solution">
@@ -16,20 +16,20 @@ export default function TableGSS({ datas }) {
               <p className="equation">
                 d = R × ({x_u} - {x_l})
               </p>
-              = [(&#8730;5 - 1) / 2] × ({datas[1].xu} - {datas[1].xl}) =
-              {datas[1].d}
+              = [(&#8730;5 - 1) / 2] × ({data[1].xu} - {data[1].xl}) =
+              {data[1].d}
             </li>
             <li>
               <p className="equation">
                 {x_1} = {x_l} + d
               </p>
-              = {datas[1].xl} + {datas[1].d} ={datas[1].x1}
+              = {data[1].xl} + {data[1].d} ={data[1].x1}
             </li>
             <li>
               <p className="equation">
                 {x_2} = {x_u} - d
               </p>
-              = {datas[1].xu}−{datas[1].d} = {datas[1].x2}
+              = {data[1].xu}−{data[1].d} = {data[1].x2}
             </li>
           </ul>
         </div>
@@ -38,12 +38,12 @@ export default function TableGSS({ datas }) {
           <h3>2. Check</h3>
           <ul className="substep step-two-check">
             <li>
-              {f_x1} = {datas[1].f1}, which is &lt; {f_x2} ={datas[1].f2} →{x_l}
-              = {x_2} and {x_opt} = {x_2} = {datas[1].x2}
+              {f_x1} = {data[1].f1}, which is &lt; {f_x2} ={data[1].f2} →{x_l}
+              = {x_2} and {x_opt} = {x_2} = {data[1].x2}
             </li>
             <li>
-              if {f_x1} &lt; {f_x2}: {x_l} = {x_2} and {x_opt} = {x_2}
-            </li>
+            if {f_x1} &lt; {f_x2}: {x_l} = {x_2} and {x_opt} = {x_2}
+          </li>
           </ul>
         </div>
 
@@ -54,9 +54,9 @@ export default function TableGSS({ datas }) {
               <p className="equation">
                 {e_a}% = (1 - R) × (interval / {x_opt}) × 100
               </p>
-              = (1 - [(&#8730;5 - 1) / 2] × ({datas[1].xu} - {datas[1].xl})) ×
-              [({datas[1].xu} -{datas[1].xl}) / {datas[1].xopt}] × 100% =
-              {datas[1].ea}%
+              = (1 - [(&#8730;5 - 1) / 2] × ({data[1].xu} - {data[1].xl})) ×
+              [({data[1].xu} -{data[1].xl}) / {data[1].xopt}] × 100% =
+              {data[1].ea}%
             </li>
           </ul>
         </div>
@@ -75,18 +75,18 @@ export default function TableGSS({ datas }) {
               <th>d</th>
               <th>{e_a}%</th>
             </tr>
-            {datas.map((data) => (
-              <tr>
-                <td>{data.iterator}</td>
-                <td>{data.xl}</td>
-                <td>{data.x2}</td>
-                <td>{data.f2}</td>
-                <td>{data.x1}</td>
-                <td>{data.f1}</td>
-                <td>{data.xu}</td>
-                <td>{data.d}</td>
-                <td>{data.ea}</td>
-              </tr>
+            {data.map((data) => (
+                <tr>
+                  <td>{data.iterator}</td>
+                  <td>{data.xl}</td>
+                  <td>{data.x2}</td>
+                  <td>{data.f2}</td>
+                  <td>{data.x1}</td>
+                  <td>{data.f1}</td>
+                  <td>{data.xu}</td>
+                  <td>{data.d}</td>
+                  <td>{data.ea}</td>
+                </tr>
             ))}
           </table>
         </div>
