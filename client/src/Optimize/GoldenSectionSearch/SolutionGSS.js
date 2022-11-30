@@ -1,6 +1,6 @@
 import React from "react";
-import variables from "./Variables";
-import "./GoldenSectionSearch.css";
+import variables from "../Variables";
+import "../../css/Optimize/twoVariables.css";
 
 export default function TableGSS({ datas }) {
   const { f_x1, f_x2, x_l, x_u, x_opt, x_1, x_2, e_a } = variables;
@@ -42,8 +42,8 @@ export default function TableGSS({ datas }) {
               = {x_2} and {x_opt} = {x_2} = {datas[1].x2}
             </li>
             <li>
-            if {f_x1} &lt; {f_x2}: {x_l} = {x_2} and {x_opt} = {x_2}
-          </li>
+              if {f_x1} &lt; {f_x2}: {x_l} = {x_2} and {x_opt} = {x_2}
+            </li>
           </ul>
         </div>
 
@@ -76,17 +76,17 @@ export default function TableGSS({ datas }) {
               <th>{e_a}%</th>
             </tr>
             {datas.map((data) => (
-                <tr>
-                  <td>{data.iterator}</td>
-                  <td>{data.xl}</td>
-                  <td>{data.x2}</td>
-                  <td>{data.f2}</td>
-                  <td>{data.x1}</td>
-                  <td>{data.f1}</td>
-                  <td>{data.xu}</td>
-                  <td>{data.d}</td>
-                  <td>{data.ea}</td>
-                </tr>
+              <tr>
+                <td>{data.iterator}</td>
+                <td>{data.xl}</td>
+                <td>{data.x2}</td>
+                <td>{data.f2}</td>
+                <td>{data.x1}</td>
+                <td>{data.f1}</td>
+                <td>{data.xu}</td>
+                <td>{data.d}</td>
+                <td>{data.ea}</td>
+              </tr>
             ))}
           </table>
         </div>

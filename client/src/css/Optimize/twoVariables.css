@@ -1,4 +1,4 @@
-.golden-container {
+.optimize-container {
   margin-left: 120px;
   margin-top: 40px;
 }
@@ -22,7 +22,7 @@
 }
 
 .algorithm-function {
-  width: 25rem;
+  width: 24rem;
 }
 
 .text-inside {
@@ -71,7 +71,7 @@
 }
 
 .algorithm-submit {
-  width: 25rem;
+  width: 24rem;
   height: 40px;
   border-radius: 8px;
   border: none;
@@ -111,7 +111,7 @@ td {
   overflow: scroll;
   padding: 8px;
   /* overflow-y: hidden;
-  overflow-x: hidden; */
+    overflow-x: hidden; */
 }
 
 th::-webkit-scrollbar {

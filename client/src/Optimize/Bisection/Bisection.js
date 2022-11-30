@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "../../css/Optimize/twoVariables.css";
-import SolutionGSS from "./SolutionGSS";
+import SolutionBS from "./SolutionBS";
 import axios from "axios";
 
-export default function GoldenSectionSearch() {
+export default function Bisection() {
   const [inputData, setInputData] = useState(null);
   const [datas, setDatas] = useState([]);
   const [status, setStatus] = useState(null);
@@ -25,7 +25,7 @@ export default function GoldenSectionSearch() {
     const getTest = async () => {
       try {
         await axios
-          .post("http://localhost:4000/optimize/goldenSectionSearch", inputData)
+          .post("http://localhost:4000/optimize/Bisection", inputData)
           .then((res) => {
             setDatas(res.data.data);
             setStatus(null);
@@ -40,7 +40,7 @@ export default function GoldenSectionSearch() {
   return (
     <div className="optimize-container">
       <form className="algorithm">
-        <h1 className="main-title">GOLDEN SECTION SEARCH</h1>
+        <h1 className="main-title">BISECTION METHOD</h1>
         <br />
         <div className="function">
           <i className="text-inside">f(x)</i>
@@ -91,28 +91,6 @@ export default function GoldenSectionSearch() {
           />
         </div>
 
-        <div className="types">
-          <label className="algorithm-type">
-            <input
-              style={{ boxShadow: "none" }}
-              type="radio"
-              value="minimum"
-              name="type"
-              onChange={handleChange}
-            />
-            Minimum
-          </label>
-          <label className="algorithm-type">
-            <input
-              style={{ boxShadow: "none" }}
-              type="radio"
-              value="maximum"
-              name="type"
-              onChange={handleChange}
-            />
-            Maximum
-          </label>
-        </div>
         <button className="btn algorithm-submit" onClick={handleSubmit}>
           SUBMIT
         </button>
@@ -122,7 +100,7 @@ export default function GoldenSectionSearch() {
           </div>
         )}
       </form>
-      {datas.length === 0 ? <></> : <SolutionGSS datas={datas} />}
+      {datas.length === 0 ? <></> : <SolutionBS datas={datas} />}
     </div>
   );
 }
