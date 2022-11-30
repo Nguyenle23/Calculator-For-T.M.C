@@ -163,8 +163,10 @@ module.exports = {
           });
       }
     } catch (error) {
-      console.log(error);
-      res.status(500).json(error);
+      res.status(500).json({
+        error: error.message,
+        message: "Invalid equation, please refesh and try again"
+      });
     }
   }
 }

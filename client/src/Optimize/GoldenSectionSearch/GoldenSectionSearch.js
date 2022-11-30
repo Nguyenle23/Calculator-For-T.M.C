@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from "react";
 import "./GoldenSectionSearch.css";
-import TableGSS from "./TableGSS";
+import SolutionGSS from "./SolutionGSS";
 import axios from "axios";
 
 export default function GoldenSectionSearch() {
   const [inputData, setInputData] = useState(null);
-  const [datas, setDatas] = useState([]);
-  const [status, setStatus] = useState(null);
+  const [data, setData] = useState([]);
+  const [status, setStatus] = useState(false);
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     window.scrollTo({
       top: 500,
       behavior: "smooth",
     });
-  }, [datas]);
+  }, [data]);
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -26,15 +27,22 @@ export default function GoldenSectionSearch() {
       try {
         await axios.post("http://localhost:4000/optimize/goldenSectionSearch", inputData)
           .then((res) => {
-            setDatas(res.data.data);
-            setStatus(null);
+            setData(res.data.data);
+            setStatus(true);
+            setMessage(res.data.message);
           })
       } catch (error) {
-        setStatus(error.response.data);
+        if (error.response.status === 400) {
+          setMessage(error.response.data);
+        } else if (error.response.status === 500) {
+          setMessage(error.response.data.message);
+        }
       }
     };
     getTest();
   };
+
+  console.log(status);
 
   return (
     <div className="golden-container">
@@ -115,13 +123,13 @@ export default function GoldenSectionSearch() {
         <button className="btn algorithm-submit" onClick={handleSubmit}>
           SUBMIT
         </button>
-        {status && (
-            <div className="error-call">
-              <p>{status}</p>
-            </div>
-          )}
+        {message && (
+          <div className="error-call">
+            <p>{message}</p>
+          </div>
+        )}
       </form>
-      {datas.length === 0 ? <></> : <TableGSS datas={datas} />}
+      {data.length === 0 ? <></> : <SolutionGSS data={data} />}
     </div>
   );
 }
