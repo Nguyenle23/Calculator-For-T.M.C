@@ -1,12 +1,18 @@
 import React, { useEffect, useState } from "react";
-import "../../css/Optimize/twoVariables.css";
-import SolutionBS from "./SolutionBS";
+import styles from "../../Optimize/twoVariables.module.css";
+import Navlink from "../../component/Navlink/Navlink";
+// import SolutionBS from "./SolutionBS";
+import { useLocation } from "react-router-dom";
 import axios from "axios";
+import classNames from "classnames/bind";
+
+const cx = classNames.bind(styles);
 
 export default function Bisection() {
   const [inputData, setInputData] = useState(null);
   const [datas, setDatas] = useState([]);
-  const [status, setStatus] = useState(null);
+  // const [status, setStatus] = useState(null);
+  const location = useLocation();
 
   useEffect(() => {
     window.scrollTo({
@@ -28,79 +34,85 @@ export default function Bisection() {
           .post("http://localhost:4000/optimize/Bisection", inputData)
           .then((res) => {
             setDatas(res.data.data);
-            setStatus(null);
+            // setStatus(null);
           });
       } catch (error) {
-        setStatus(error.response.data);
+        // setStatus(error.response.data);
       }
     };
     getTest();
   };
 
   return (
-    <div className="optimize-container">
-      <form className="algorithm">
-        <h1 className="main-title">BISECTION METHOD</h1>
+    <div className={cx("optimize-container")}>
+      <Navlink
+        link={{
+          parent: location.state.parent,
+          children: location.state.children,
+        }}
+      />
+      <form className={cx("algorithm")}>
+        <h1 className={cx("main-title")}>BISECTION METHOD</h1>
         <br />
-        <div className="function">
-          <i className="text-inside">f(x)</i>
+        <div className={cx("function")}>
+          <i className={cx("input-symbol")}>f(x)</i>
           <input
             placeholder="enter your function..."
             title=" correct format: x^5 - 5*x^4 + x^3- 6*x^2+7*x+10 "
             type="text"
-            className="algorithm-function"
+            className={cx("algorithm-function")}
             name="equation"
             onChange={handleChange}
             required
           />
         </div>
 
-        <div className="variables">
-          <i className="text-inside">
+        <div className={cx("variables")}>
+          <i className={cx("input-symbol")}>
             x<sub>l</sub>
           </i>
           <input
             placeholder=""
             type="text"
-            className="algorithm-variable"
+            className={cx("algorithm-variable")}
             name="xl"
             onChange={handleChange}
           />
-          <i className="text-inside">
+          <i className={cx("input-symbol")}>
             x<sub>u</sub>
           </i>
           <input
             placeholder=""
             type="text"
-            className="algorithm-variable"
+            className={cx("algorithm-variable")}
             name="xu"
             onChange={handleChange}
           />
         </div>
 
-        <div className="error">
-          <i className="text-inside">
+        <div className={cx("error")}>
+          <i className={cx("input-symbol")}>
             e<sub>s</sub>%
           </i>
           <input
             placeholder=""
             type="text"
-            className="algorithm-error"
+            className={cx("algorithm-error")}
             name="es"
             onChange={handleChange}
           />
         </div>
 
-        <button className="btn algorithm-submit" onClick={handleSubmit}>
+        <button className={cx("algorithm-submit")} onClick={handleSubmit}>
           SUBMIT
         </button>
-        {status && (
-          <div className="error-call">
-            <p>{status}</p>
+        {/* {message && (
+          <div className={cx("error-call")}>
+            <p>{message}</p>
           </div>
-        )}
+        )} */}
       </form>
-      {datas.length === 0 ? <></> : <SolutionBS datas={datas} />}
+      {/* {data.length === 0 ? <></> : <SolutionBS data={data} />} */}
     </div>
   );
 }
