@@ -5,6 +5,7 @@ import Header from "./component/Header/Header";
 import Home from "./Page/Home";
 import GoldenSectionSearch from "./Optimize/GoldenSectionSearch/GoldenSectionSearch";
 import Bisection from "./Optimize/Bisection/Bisection";
+import ParabolicInterpolation from "./Optimize/ParabolicInterpolation/ParabolicInterpolation";
 
 export default function App() {
   return (
@@ -16,12 +17,15 @@ export default function App() {
 
           {/* golden section search */}
           <Route
-            path="/golden-section"
+            path="/goldenSectionSearch"
             element={<GoldenSectionSearch />}
           ></Route>
 
           {/* bisection method */}
           <Route path="/bisection" element={<Bisection />}></Route>
+
+          {/* parabolic interpolation method */}
+          <Route path="/parabolicInterpolation" element={<ParabolicInterpolation />}></Route>
         </Routes>
       </Router>
     </div>

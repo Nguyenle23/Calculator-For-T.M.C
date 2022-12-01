@@ -43,8 +43,6 @@ export default function GoldenSectionSearch() {
     getTest();
   };
 
-  console.log(status);
-
   return (
     <div className="optimize-container">
       <form className="algorithm">
@@ -121,6 +119,7 @@ export default function GoldenSectionSearch() {
             Maximum
           </label>
         </div>
+        
         <button className="btn algorithm-submit" onClick={handleSubmit}>
           SUBMIT
         </button>
