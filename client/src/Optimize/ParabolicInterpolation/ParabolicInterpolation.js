@@ -94,19 +94,6 @@ export default function ParabolicInterpolation() {
           />
         </div>
 
-        <div className="error">
-          <i className="text-inside">
-            e<sub>s</sub>%
-          </i>
-          <input
-            placeholder=""
-            type="text"
-            className="algorithm-error"
-            name="es"
-            onChange={handleChange}
-          />
-        </div>
-
         <div className="types">
           <label className="algorithm-type">
             <input
