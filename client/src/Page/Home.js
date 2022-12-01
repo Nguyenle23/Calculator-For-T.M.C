@@ -5,12 +5,15 @@ function Home() {
   const navList = [
     {
       navName: "Golden Section Search",
-      navPath: "golden-section",
+      navPath: "goldenSectionSearch",
     },
-
     {
       navName: "Bisection Method",
       navPath: "bisection",
+    },
+    {
+      navName: "Parabolic Interpolation Method",
+      navPath: "parabolicInterpolation",
     },
   ];
   const navigator = useNavigate();

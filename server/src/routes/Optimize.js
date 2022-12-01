@@ -4,5 +4,6 @@ const router = express.Router();
 const optimizeController = require('../controllers/OptimizeController');
 
 router.post('/goldenSectionSearch', optimizeController.goldenSectionSearch);
+router.post('/parabolicInterpolation', optimizeController.parabolicInterpolation);
 
 module.exports = router;
