@@ -1,20 +1,13 @@
 import React, { useEffect, useState } from "react";
-import styles from "../../Optimize/twoVariables.module.css";
-import Navlink from "../../component/Navlink/Navlink";
-import SolutionGSS from "./SolutionGSS";
-import { useLocation } from "react-router-dom";
+import "../../css/Optimize/twoVariables.css";
+import SolutionGSS from "./SolutionPI";
 import axios from "axios";
-import classNames from "classnames/bind";
 
-const cx = classNames.bind(styles);
-
-export default function GoldenSectionSearch() {
+export default function ParabolicInterpolation() {
   const [inputData, setInputData] = useState(null);
   const [data, setData] = useState([]);
   const [status, setStatus] = useState(false);
   const [message, setMessage] = useState("");
-
-  const location = useLocation();
 
   useEffect(() => {
     window.scrollTo({
@@ -33,12 +26,12 @@ export default function GoldenSectionSearch() {
     const getTest = async () => {
       try {
         await axios
-          .post("http://localhost:4000/optimize/goldenSectionSearch", inputData)
+          .post("http://localhost:4000/optimize/parabolicInterpolation", inputData)
           .then((res) => {
             setData(res.data.data);
             setStatus(true);
             setMessage(res.data.message);
-          });
+          })
       } catch (error) {
         if (error.response.status === 400) {
           setMessage(error.response.data);
@@ -51,67 +44,58 @@ export default function GoldenSectionSearch() {
   };
 
   return (
-    <div className={cx("optimize-container")}>
-      <Navlink
-        link={{
-          parent: location.state.parent,
-          children: location.state.children,
-        }}
-      />
-      <form className={cx("algorithm")}>
-        <h1 className={cx("main-title")}>GOLDEN SECTION SEARCH</h1>
+    <div className="optimize-container">
+      <form className="algorithm">
+        <h1 className="main-title">PARABOLIC INTERPOLATION</h1>
         <br />
-        <div className={cx("function")}>
-          <i className={cx("input-symbol")}>f(x)</i>
+        <div className="function">
+          <i className="text-inside">f(x)</i>
           <input
             placeholder="enter your function..."
             title=" correct format: x^5 - 5*x^4 + x^3- 6*x^2+7*x+10 "
             type="text"
-            className={cx("algorithm-function")}
-            name="equation"
+            className="algorithm-function"
+            name="equationInput"
             onChange={handleChange}
             required
           />
         </div>
 
-        <div className={cx("variables")}>
-          <i className={cx("input-symbol")}>
-            x<sub>l</sub>
+        <div className="variables">
+          <i className="text-inside">
+            x<sub>0</sub>
           </i>
           <input
             placeholder=""
             type="text"
-            className={cx("algorithm-variable")}
-            name="xl"
+            className="algorithm-variable"
+            name="x0"
             onChange={handleChange}
           />
-          <i className={cx("input-symbol")}>
-            x<sub>u</sub>
+          <i className="text-inside">
+            x<sub>1</sub>
           </i>
           <input
             placeholder=""
             type="text"
-            className={cx("algorithm-variable")}
-            name="xu"
+            className="algorithm-variable"
+            name="x1"
             onChange={handleChange}
           />
-        </div>
-
-        <div className={cx("error")}>
-          <i className={cx("input-symbol")}>
-            e<sub>s</sub>%
+          <i className="text-inside">
+            x<sub>2</sub>
           </i>
           <input
             placeholder=""
             type="text"
-            className={cx("algorithm-error")}
-            name="es"
+            className="algorithm-variable"
+            name="x2"
             onChange={handleChange}
           />
         </div>
 
-        <div className={cx("types")}>
-          <label className={cx("algorithm-type")}>
+        <div className="types">
+          <label className="algorithm-type">
             <input
               style={{ boxShadow: "none" }}
               type="radio"
@@ -121,7 +105,7 @@ export default function GoldenSectionSearch() {
             />
             Minimum
           </label>
-          <label className={cx("algorithm-type")}>
+          <label className="algorithm-type">
             <input
               style={{ boxShadow: "none" }}
               type="radio"
@@ -132,11 +116,12 @@ export default function GoldenSectionSearch() {
             Maximum
           </label>
         </div>
-        <button className={cx("algorithm-submit")} onClick={handleSubmit}>
+
+        <button className="btn algorithm-submit" onClick={handleSubmit}>
           SUBMIT
         </button>
         {message && (
-          <div className={cx("error-call")}>
+          <div className="error-call">
             <p>{message}</p>
           </div>
         )}
