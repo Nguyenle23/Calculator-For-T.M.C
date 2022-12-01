@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import styles from "../../Optimize/twoVariables.module.css";
 import Navlink from "../../component/Navlink/Navlink";
-// import SolutionBS from "./SolutionBS";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
 
-export default function Bisection() {
+export default function NewtonMethod() {
   const [inputData, setInputData] = useState(null);
   const [datas, setDatas] = useState([]);
   // const [status, setStatus] = useState(null);
@@ -31,7 +30,7 @@ export default function Bisection() {
     const getTest = async () => {
       try {
         await axios
-          .post("http://localhost:4000/optimize/Bisection", inputData)
+          .post("http://localhost:4000/optimize/newtonMethod", inputData)
           .then((res) => {
             setDatas(res.data.data);
             // setStatus(null);
@@ -52,7 +51,7 @@ export default function Bisection() {
         }}
       />
       <form className={cx("algorithm")}>
-        <h1 className={cx("main-title")}>BISECTION METHOD</h1>
+        <h1 className={cx("main-title")}>NEWTON METHOD</h1>
         <br />
         <div className={cx("function")}>
           <i className={cx("input-symbol")}>f(x)</i>
@@ -112,7 +111,7 @@ export default function Bisection() {
           </div>
         )} */}
       </form>
-      {/* {data.length === 0 ? <></> : <SolutionBS data={data} />} */}
+      {/* {status === true ? <SolutionGSS data={data} /> : null} */}
     </div>
   );
 }

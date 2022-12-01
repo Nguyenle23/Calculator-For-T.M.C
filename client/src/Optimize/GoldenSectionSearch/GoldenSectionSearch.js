@@ -43,6 +43,7 @@ export default function GoldenSectionSearch() {
         if (error.response.status === 400) {
           setMessage(error.response.data);
         } else if (error.response.status === 500) {
+          setStatus(false);
           setMessage(error.response.data.message);
         }
       }
@@ -141,7 +142,7 @@ export default function GoldenSectionSearch() {
           </div>
         )}
       </form>
-      {data.length === 0 ? <></> : <SolutionGSS data={data} />}
+      {status === true ? <SolutionGSS data={data} /> : null}
     </div>
   );
 }

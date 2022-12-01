@@ -1,13 +1,20 @@
 import React, { useEffect, useState } from "react";
-import "../../css/Optimize/twoVariables.css";
-import SolutionGSS from "./SolutionPI";
+import styles from "../../Optimize/twoVariables.module.css";
+import Navlink from "../../component/Navlink/Navlink";
+import SolutionPI from "./SolutionPI";
+import { useLocation } from "react-router-dom";
 import axios from "axios";
+import classNames from "classnames/bind";
+
+const cx = classNames.bind(styles);
 
 export default function ParabolicInterpolation() {
   const [inputData, setInputData] = useState(null);
   const [data, setData] = useState([]);
   const [status, setStatus] = useState(false);
   const [message, setMessage] = useState("");
+
+  const location = useLocation();
 
   useEffect(() => {
     window.scrollTo({
@@ -36,6 +43,7 @@ export default function ParabolicInterpolation() {
         if (error.response.status === 400) {
           setMessage(error.response.data);
         } else if (error.response.status === 500) {
+          setStatus(false);
           setMessage(error.response.data.message);
         }
       }
@@ -44,58 +52,67 @@ export default function ParabolicInterpolation() {
   };
 
   return (
-    <div className="optimize-container">
-      <form className="algorithm">
-        <h1 className="main-title">PARABOLIC INTERPOLATION</h1>
+    <div className={cx("optimize-container")}>
+      <Navlink
+        link={{
+          parent: location.state.parent,
+          children: location.state.children,
+        }}
+      />
+      <form className={cx("algorithm")}>
+        <h1 className={cx("main-title")}>PARABOLIC INTERPOLATION</h1>
         <br />
-        <div className="function">
-          <i className="text-inside">f(x)</i>
+        <div className={cx("function")}>
+          <i className={cx("input-symbol")}>f(x)</i>
           <input
             placeholder="enter your function..."
-            title=" correct format: x^5 - 5*x^4 + x^3- 6*x^2+7*x+10 "
+            title=" correct format: x^5 - 5*x^4 + x^3 - 6*x^2 + 7*x + 10"
             type="text"
-            className="algorithm-function"
+            className={cx("algorithm-function")}
             name="equationInput"
             onChange={handleChange}
             required
           />
         </div>
 
-        <div className="variables">
-          <i className="text-inside">
+        <div className={cx("variables")}>
+          <i className={cx("input-symbol")}>
             x<sub>0</sub>
           </i>
           <input
             placeholder=""
             type="text"
-            className="algorithm-variable"
+            className={cx("algorithm-variable")}
             name="x0"
             onChange={handleChange}
           />
-          <i className="text-inside">
+          <i className={cx("input-symbol")}>
             x<sub>1</sub>
           </i>
           <input
             placeholder=""
             type="text"
-            className="algorithm-variable"
+            className={cx("algorithm-variable")}
             name="x1"
             onChange={handleChange}
           />
-          <i className="text-inside">
+        </div>
+
+        <div className={cx("variables")}>
+          <i className={cx("input-symbol")}>
             x<sub>2</sub>
           </i>
           <input
             placeholder=""
             type="text"
-            className="algorithm-variable"
+            className={cx("algorithm-variable")}
             name="x2"
             onChange={handleChange}
           />
         </div>
 
-        <div className="types">
-          <label className="algorithm-type">
+        <div className={cx("types")}>
+          <label className={cx("algorithm-type")}>
             <input
               style={{ boxShadow: "none" }}
               type="radio"
@@ -105,7 +122,7 @@ export default function ParabolicInterpolation() {
             />
             Minimum
           </label>
-          <label className="algorithm-type">
+          <label className={cx("algorithm-type")}>
             <input
               style={{ boxShadow: "none" }}
               type="radio"
@@ -117,16 +134,16 @@ export default function ParabolicInterpolation() {
           </label>
         </div>
 
-        <button className="btn algorithm-submit" onClick={handleSubmit}>
+        <button className={cx("algorithm-submit")} onClick={handleSubmit}>
           SUBMIT
         </button>
         {message && (
-          <div className="error-call">
+          <div className={cx("error-call")}>
             <p>{message}</p>
           </div>
         )}
       </form>
-      {data.length === 0 ? <></> : <SolutionGSS data={data} />}
+      {status === true ? <SolutionPI data={data} /> : null}
     </div>
   );
 }

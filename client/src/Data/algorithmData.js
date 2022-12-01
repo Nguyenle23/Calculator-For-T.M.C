@@ -5,12 +5,15 @@ export const algorithmData = [
     navList: [
       {
         navName: "Golden Section Search",
-        navPath: "golden-section",
+        navPath: "goldenSectionSearch",
       },
-
       {
-        navName: "Bisection Method",
-        navPath: "bisection",
+        navName: "Newton Method",
+        navPath: "newtonMethod",
+      },
+      {
+        navName: "Parabolic Interpolation Method",
+        navPath: "parabolicInterpolation",
       },
     ],
   },
@@ -21,12 +24,15 @@ export const algorithmData = [
     navList: [
       {
         navName: "Golden Section Search",
-        navPath: "golden-section",
+        navPath: "goldenSectionSearch",
       },
-
       {
-        navName: "Bisection Method",
-        navPath: "bisection",
+        navName: "Newton Method",
+        navPath: "newtonMethod",
+      },
+      {
+        navName: "Parabolic Interpolation Method",
+        navPath: "parabolicInterpolation",
       },
     ],
   },
@@ -37,12 +43,15 @@ export const algorithmData = [
     navList: [
       {
         navName: "Golden Section Search",
-        navPath: "golden-section",
+        navPath: "goldenSectionSearch",
       },
-
       {
-        navName: "Bisection Method",
-        navPath: "bisection",
+        navName: "Newton Method",
+        navPath: "newtonMethod",
+      },
+      {
+        navName: "Parabolic Interpolation Method",
+        navPath: "parabolicInterpolation",
       },
     ],
   },

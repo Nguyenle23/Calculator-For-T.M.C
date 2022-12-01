@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "./component/Header/Header";
 import Home from "./Page/Home/Home";
 import GoldenSectionSearch from "./Optimize/GoldenSectionSearch/GoldenSectionSearch";
-import Bisection from "./Optimize/Bisection/Bisection";
+import NewtonMethod from "./Optimize/NewtonMethod/NewtonMethod";
 import ParabolicInterpolation from "./Optimize/ParabolicInterpolation/ParabolicInterpolation";
 
 export default function App() {
@@ -15,16 +15,13 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />}></Route>
 
-          {/* golden section search */}
           <Route
             path="/goldenSectionSearch"
             element={<GoldenSectionSearch />}
           ></Route>
 
-          {/* bisection method */}
-          <Route path="/bisection" element={<Bisection />}></Route>
+          <Route path="/newtonMethod" element={<NewtonMethod />}></Route>
 
-          {/* parabolic interpolation method */}
           <Route path="/parabolicInterpolation" element={<ParabolicInterpolation />}></Route>
         </Routes>
       </Router>
