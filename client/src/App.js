@@ -2,7 +2,7 @@ import React from "react";
 import "./css/Global/App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "./component/Header/Header";
-import Home from "./Page/Home";
+import Home from "./Page/Home/Home";
 import GoldenSectionSearch from "./Optimize/GoldenSectionSearch/GoldenSectionSearch";
 import Bisection from "./Optimize/Bisection/Bisection";
 import ParabolicInterpolation from "./Optimize/ParabolicInterpolation/ParabolicInterpolation";

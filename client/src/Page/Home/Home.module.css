@@ -1,0 +1,41 @@
+.home-container {
+    margin-left: 120px;
+    margin-top: 40px;
+    max-width: 60rem;
+}
+
+.home-title {
+    margin-bottom: 20px;
+}
+
+/* ======================== TABLE ======================== */
+.table-section,
+.table-section-row-container,
+.table-section-subrow-container,
+.table-section-row,
+.table-section-subrow {
+    text-align: left;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    border-collapse: collapse;
+    font-weight: 400;
+}
+
+.table-section, .table-section-subrow {
+    width: 48rem;
+}
+
+.table-section-row {
+    padding: 8px 8px 8px 64px;
+}
+
+.table-section-subrow {
+    padding: 8px 8px 8px 92px;
+}
+
+.table-section-row-container:hover,
+.table-section-subrow-container:hover {
+    background-color: rgba(255, 255, 255, 0.055);
+    cursor: pointer;
+}
+
+/* ======================================================= */
