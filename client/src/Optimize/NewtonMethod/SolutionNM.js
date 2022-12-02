@@ -10,7 +10,7 @@ export default function SolutionNM({ data }) {
   return (
     <div className={cx("algorithm-solution")}>
       <h1 className={cx("h1")}>SOLUTION</h1>
-      <h3>Full calculation for the first iterator</h3>
+      <h3>Full calculation for the first iteration</h3>
       <div className={cx("step-container")}>
         <div className={cx("step-one")}>
           <h3>1. Calculate</h3>
