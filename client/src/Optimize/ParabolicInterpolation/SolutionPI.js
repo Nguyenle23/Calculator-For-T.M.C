@@ -6,7 +6,8 @@ import classNames from "classnames/bind";
 const cx = classNames.bind(styles);
 
 export default function SolutionPI({ data }) {
-  const { f_x0, f_x1, f_x2, f_x3, x_0, x_1, x_2, x_3 } = variables;
+  const { f_x0, f_x1, f_x2, f_x3, x_0, x_1, x_2, x_3, x2_1, x2_2, x2_0 } =
+    variables;
   return (
     <div className={cx("algorithm-solution")}>
       <h1 className={cx("h1")}>SOLUTION</h1>
@@ -17,31 +18,34 @@ export default function SolutionPI({ data }) {
           <ul className={cx("step-one-calculate")}>
             <li>
               <p className={cx("equation")}>
-                f(x0) = {data[0].f0}
+                {f_x0} = {data[0].f0}
               </p>
             </li>
             <li>
               <p className={cx("equation")}>
-                f(x1) = {data[0].f1}
+                {f_x1} = {data[0].f1}
               </p>
             </li>
             <li>
               <p className={cx("equation")}>
-                f(x2) = {data[0].f2}
+                {f_x2} = {data[0].f2}
               </p>
             </li>
             <li>
-              <p className={cx("equation")}>
-                x3 =
-              </p>
-              f(x0)(x²1 - x²2) + f(x1)(x²2 - x²0) + f(x2)(x²0 - x²1)
-              <p>--------------------------------------------------</p>
-              2f(x0)(x1 - x2) + 2f(x1)(x2 - x0) + 2f(x2)(x0 - x1)
-              <p>= {data[0].f3}</p>
+              <p className={cx("equation")}>{x_3} =</p>
+              <div className={cx("numerator")}>
+                {f_x0}({x2_1} - {x2_2}) + {f_x1}({x2_2} - {x2_0}) + {f_x2}(
+                {x2_0}-{x2_1})
+              </div>
+              <div className={cx("denominator")}>
+                2{f_x0}({x_1} - {x_2}) + 2f({x_1})({x_2} - {x_0}) + 2f(
+                {x_2})({x_0}- {x_1})
+              </div>
+              <span>= {data[0].f3}</span>
             </li>
             <li>
               <p className={cx("equation")}>
-                f(x3) = {data[0].f3}
+                {f_x3} = {data[0].f3}
               </p>
             </li>
           </ul>
@@ -51,11 +55,12 @@ export default function SolutionPI({ data }) {
           <h3>2. Check</h3>
           <ul className={cx("step-two-check")}>
             <li>
-              {f_x1} = {data[0].f1} &lt; {f_x2} = {data[0].f2} → Update: {x_0}
-              = {x_1}, {x_1} = {x_2}, {x_2} = {x_3}
+              {f_x1} = {data[0].f1} &lt; {f_x2} = {data[0].f2} → Update: {x_0}={" "}
+              {x_1}, {x_1} = {x_2}, {x_2} = {x_3}
             </li>
             <li>
-              Hence: {x_0} = {data[0].x0}, {x_1} = {data[0].x1}, {x_2} = {data[0].x2}
+              Hence: {x_0} = {data[0].x0}, {x_1} = {data[0].x1}, {x_2} ={" "}
+              {data[0].x2}
             </li>
           </ul>
         </div>
@@ -65,7 +70,7 @@ export default function SolutionPI({ data }) {
         </div>
 
         <div className={cx("step-four")}>
-          <h3>4. Table result</h3>
+          <h3>3. Table result</h3>
           <table className={cx("step-four-table")}>
             <tr className={cx("step-four-row")}>
               <th className={cx("step-four-table-title")}>Iteration</th>

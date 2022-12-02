@@ -17,7 +17,7 @@ export default function SolutionNM({ data }) {
           {/* <ul className={cx("step-one-calculate")}>
             <li>
               <p className={cx("equation")}>
-                f(x0) = {data[0].f0}
+                f(x0) = {data[0].fx}
               </p>
             </li>
             <li>
@@ -79,9 +79,9 @@ export default function SolutionNM({ data }) {
               <tr className={cx("step-four-row")}>
                 <td className={cx("step-four-table-data")}>{data.iterator}</td>
                 <td className={cx("step-four-table-data")}>{data.x0}</td>
-                <td className={cx("step-four-table-data")}>{data.f0}</td>
-                <td className={cx("step-four-table-data")}>{data.fist_f0}</td>
-                <td className={cx("step-four-table-data")}>{data.second_f0}</td>
+                <td className={cx("step-four-table-data")}>{data.fx}</td>
+                <td className={cx("step-four-table-data")}>{data.f_1st}</td>
+                <td className={cx("step-four-table-data")}>{data.f_2nd}</td>
                 <td className={cx("step-four-table-data")}>{data.ea}</td>
               </tr>
             ))}

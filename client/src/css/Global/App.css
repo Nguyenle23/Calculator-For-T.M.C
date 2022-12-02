@@ -1,4 +1,5 @@
 :root {
+  --container-width: 60rem;
   --primary-color: #202020;
   --secondary-color: #171717;
   --brand-size: 30px;
@@ -30,7 +31,7 @@ input {
   border: none;
   background-color: #171717;
   color: white;
-  box-shadow: 0px 1px #8c8c8c;
+  box-shadow: 0px 1px 2px #8c8c8c;
   accent-color: #171717;
 }
 

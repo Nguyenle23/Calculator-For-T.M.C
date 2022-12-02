@@ -38,7 +38,7 @@ export default function NewtonMethod() {
             setData(res.data.data);
             setStatus(true);
             setMessage(res.data.message);
-          })
+          });
       } catch (error) {
         if (error.response.status === 400) {
           setMessage(error.response.data);
@@ -86,6 +86,8 @@ export default function NewtonMethod() {
             name="x0"
             onChange={handleChange}
           />
+        </div>
+        <div className={cx("error")}>
           <i className={cx("input-symbol")}>
             e<sub>s</sub>%
           </i>

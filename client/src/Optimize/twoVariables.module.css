@@ -1,7 +1,7 @@
 .optimize-container {
   margin-left: 120px;
   margin-top: 40px;
-  max-width: 60rem;
+  max-width: var(--container-width);
 }
 
 .main-title {
@@ -109,8 +109,18 @@
   margin: 10px 36px;
 }
 
+.numerator,
+.denominator {
+  max-width: 24rem;
+  text-align: center;
+}
+
+.numerator {
+  border-bottom: 1px solid white;
+}
+
 .step-four-table {
-  width: 90%;
+  width: 60rem;
 }
 
 .step-four-table,
