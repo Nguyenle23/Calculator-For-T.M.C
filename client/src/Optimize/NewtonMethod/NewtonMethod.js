@@ -3,14 +3,17 @@ import styles from "../../Optimize/twoVariables.module.css";
 import Navlink from "../../component/Navlink/Navlink";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
+import SolutionNM from "./SolutionNM";
 import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
 
 export default function NewtonMethod() {
   const [inputData, setInputData] = useState(null);
-  const [datas, setDatas] = useState([]);
-  // const [status, setStatus] = useState(null);
+  const [data, setData] = useState([]);
+  const [status, setStatus] = useState(null);
+  const [message, setMessage] = useState("");
+
   const location = useLocation();
 
   useEffect(() => {
@@ -18,7 +21,7 @@ export default function NewtonMethod() {
       top: 500,
       behavior: "smooth",
     });
-  }, [datas]);
+  }, [data]);
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -32,11 +35,17 @@ export default function NewtonMethod() {
         await axios
           .post("http://localhost:4000/optimize/newtonMethod", inputData)
           .then((res) => {
-            setDatas(res.data.data);
-            // setStatus(null);
+            setData(res.data.data);
+            setStatus(true);
+            setMessage(res.data.message);
           });
       } catch (error) {
-        // setStatus(error.response.data);
+        if (error.response.status === 400) {
+          setMessage(error.response.data);
+        } else if (error.response.status === 500) {
+          setStatus(false);
+          setMessage(error.response.data.message);
+        }
       }
     };
     getTest();
@@ -60,7 +69,7 @@ export default function NewtonMethod() {
             title=" correct format: x^5 - 5*x^4 + x^3- 6*x^2+7*x+10 "
             type="text"
             className={cx("algorithm-function")}
-            name="equation"
+            name="equationInput"
             onChange={handleChange}
             required
           />
@@ -68,27 +77,16 @@ export default function NewtonMethod() {
 
         <div className={cx("variables")}>
           <i className={cx("input-symbol")}>
-            x<sub>l</sub>
+            x<sub>0</sub>
           </i>
           <input
             placeholder=""
             type="text"
             className={cx("algorithm-variable")}
-            name="xl"
-            onChange={handleChange}
-          />
-          <i className={cx("input-symbol")}>
-            x<sub>u</sub>
-          </i>
-          <input
-            placeholder=""
-            type="text"
-            className={cx("algorithm-variable")}
-            name="xu"
+            name="x0"
             onChange={handleChange}
           />
         </div>
-
         <div className={cx("error")}>
           <i className={cx("input-symbol")}>
             e<sub>s</sub>%
@@ -96,7 +94,7 @@ export default function NewtonMethod() {
           <input
             placeholder=""
             type="text"
-            className={cx("algorithm-error")}
+            className={cx("algorithm-variable")}
             name="es"
             onChange={handleChange}
           />
@@ -105,13 +103,13 @@ export default function NewtonMethod() {
         <button className={cx("algorithm-submit")} onClick={handleSubmit}>
           SUBMIT
         </button>
-        {/* {message && (
+        {message && (
           <div className={cx("error-call")}>
             <p>{message}</p>
           </div>
-        )} */}
+        )}
       </form>
-      {/* {status === true ? <SolutionGSS data={data} /> : null} */}
+      {status === true ? <SolutionNM data={data} /> : null}
     </div>
   );
 }

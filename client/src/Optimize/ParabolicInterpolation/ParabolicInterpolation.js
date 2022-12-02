@@ -33,12 +33,15 @@ export default function ParabolicInterpolation() {
     const getTest = async () => {
       try {
         await axios
-          .post("http://localhost:4000/optimize/parabolicInterpolation", inputData)
+          .post(
+            "http://localhost:4000/optimize/parabolicInterpolation",
+            inputData
+          )
           .then((res) => {
             setData(res.data.data);
             setStatus(true);
             setMessage(res.data.message);
-          })
+          });
       } catch (error) {
         if (error.response.status === 400) {
           setMessage(error.response.data);

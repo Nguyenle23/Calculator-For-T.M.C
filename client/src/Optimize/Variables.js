@@ -76,6 +76,29 @@ const x_3 = (
   </>
 );
 
+const x2_0 = (
+  <>
+    (x<sub>0</sub>)<sup>2</sup>
+  </>
+);
+
+const x2_1 = (
+  <>
+    (x<sub>1</sub>)<sup>2</sup>
+  </>
+);
+
+const x2_2 = (
+  <>
+    (x<sub>2</sub>)<sup>2</sup>
+  </>
+);
+
+const x2_3 = (
+  <>
+    (x<sub>3</sub>)<sup>2</sup>
+  </>
+);
 const e_a = (
   <>
     e<sub>a</sub>
@@ -94,6 +117,10 @@ const variables = {
   x_1,
   x_2,
   x_3,
+  x2_0,
+  x2_1,
+  x2_2,
+  x2_3,
   e_a,
   f_xl,
   f_xu,
