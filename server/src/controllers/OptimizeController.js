@@ -188,8 +188,8 @@ module.exports = {
         return res.status(400).json('Please enter a valid equation');
       }
 
-      const converInput = equationInput.replace('**', '^');
-      let equationCompile = math.compile(converInput);
+      const convertInput = equationInput.replace('**', '^');
+      let equationCompile = math.compile(convertInput);
       let equation = (x) => {
         return equationCompile.evaluate({ x: x });
       };
@@ -515,6 +515,84 @@ module.exports = {
             data: obj,
           });
       }
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({
+        error: error.message,
+        message: "Invalid equation, please refesh and try again"
+      });
+    }
+  },
+  newtonMethod: async (req, res) => {
+    let { equationInput, x0, es } = req.body;
+    try {
+      if (equationInput == undefined || x0 == undefined || es == undefined) {
+        return res.status(400).json('Please fill all the fields');
+      }
+
+      if (/([-+*\/=]?)(?:(\d+)(x?)|()(x))/g.test(equationInput) === false) {
+        return res.status(400).json('Please enter a valid equation');
+      }
+
+      const convertInput = equationInput.replace('**', '^');
+
+      let equationCompile = math.compile(convertInput);
+      let equation = (x) => {
+        return equationCompile.evaluate({ x: x });
+      };
+
+      let first_deri_equationCompile = math.derivative(convertInput, 'x');
+      let first_deri_equation = (x) => {
+        return first_deri_equationCompile.evaluate({ x: x });
+      };
+
+      let second_deri_equationCompile = math.derivative(first_deri_equationCompile, 'x');
+      let second_deri_equation = (x) => {
+        return second_deri_equationCompile.evaluate({ x: x });
+      };
+
+      let obj = [{}];
+      let f0 = equation(x0);
+      let fist_f0 = first_deri_equation(x0);
+      let second_f0 = second_deri_equation(x0);
+      let x_next = x0 - (first_deri_equation(x0) / second_deri_equation(x0));
+      let ea = (x_next - x0) / x_next; 
+
+      let i = 0;
+      while (i < 20) {
+        if (i == 0) {
+          obj[i] = {
+            iterator: i,
+            x0: parseFloat(x0).toFixed(5),
+            f0: parseFloat(f0).toFixed(5),
+            fist_f0: parseFloat(fist_f0).toFixed(5),
+            second_f0: parseFloat(second_f0).toFixed(5),
+            ea: parseFloat(ea).toFixed(5),
+          }
+        } else {
+          x0 = x_next;
+          f0 = equation(x0);
+          fist_f0 = first_deri_equation(x0);
+          second_f0 = second_deri_equation(x0);
+          x_next = x0 - (first_deri_equation(x0) / second_deri_equation(x0));
+          ea = (x_next - x0) / x_next; 
+          obj[i] = {
+            iterator: i,
+            x0: parseFloat(x0).toFixed(5),
+            f0: parseFloat(f0).toFixed(5),
+            fist_f0: parseFloat(fist_f0).toFixed(5),
+            second_f0: parseFloat(second_f0).toFixed(5),
+            ea: parseFloat(ea).toFixed(5),
+          }
+          // if (obj[i].ea < es) {
+          //   break;
+          // }
+        }
+        i++;
+      }
+      return res.status(200).json({
+        data: obj,
+      });
     } catch (error) {
       console.log(error);
       res.status(500).json({
