@@ -52,6 +52,18 @@ const x_opt = (
   </>
 );
 
+const x_i1 = (
+  <>
+    x<sub>i+1</sub>
+  </>
+);
+
+const x_i = (
+  <>
+    x<sub>i</sub>
+  </>
+);
+
 const x_0 = (
   <>
     x<sub>0</sub>
@@ -113,6 +125,8 @@ const variables = {
   x_l,
   x_u,
   x_opt,
+  x_i1,
+  x_i,
   x_0,
   x_1,
   x_2,

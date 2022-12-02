@@ -13,6 +13,7 @@ export default function NewtonMethod() {
   const [data, setData] = useState([]);
   const [status, setStatus] = useState(null);
   const [message, setMessage] = useState("");
+  const [formula, setFormula] = useState([]);
 
   const location = useLocation();
 
@@ -35,6 +36,11 @@ export default function NewtonMethod() {
         await axios
           .post("http://localhost:4000/optimize/newtonMethod", inputData)
           .then((res) => {
+            setFormula([
+              res.data.formula,
+              res.data.firtDeri,
+              res.data.secondDeri,
+            ]);
             setData(res.data.data);
             setStatus(true);
             setMessage(res.data.message);
@@ -109,7 +115,7 @@ export default function NewtonMethod() {
           </div>
         )}
       </form>
-      {status === true ? <SolutionNM data={data} /> : null}
+      {status === true ? <SolutionNM data={data} formula={formula} /> : null}
     </div>
   );
 }
