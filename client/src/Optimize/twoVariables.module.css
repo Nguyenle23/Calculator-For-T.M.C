@@ -109,28 +109,25 @@
   margin: 10px 36px;
 }
 
-.equation {
-  position: relative;
+.frac-equation {
+ display: flex;
+ height: fit-content;
+ align-items: center;
 }
 
-.formula {
-  position: absolute;
-  top: 0;
-  left: 5%
-}
-
-.constant {
-  /* position: absolute; */
+.frac-equation > div {
+  margin: 4px;
 }
 
 .numerator,
 .denominator {
-  max-width: 24rem;
+  /* width: fit-content; */
   text-align: center;
 }
 
 .numerator {
   border-bottom: 1px solid white;
+
 }
 
 .step-four-table {

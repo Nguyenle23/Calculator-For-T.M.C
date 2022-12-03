@@ -6,7 +6,7 @@ import classNames from "classnames/bind";
 const cx = classNames.bind(styles);
 
 export default function SolutionPI({ data }) {
-  console.log(data)
+  console.log(data);
   const { f_x0, f_x1, f_x2, f_x3, x_0, x_1, x_2, x_3, x2_1, x2_2, x2_0 } =
     variables;
   return (
@@ -33,21 +33,21 @@ export default function SolutionPI({ data }) {
               </p>
             </li>
             <li>
-              <div className={cx("equation")}>
-                <p className={cx("constant")}>{x_3} =</p>
-                <div className={cx("formula")}>
-                <div className={cx("numerator")}>
-                  {f_x0}({x2_1} - {x2_2}) + {f_x1}({x2_2} - {x2_0}) + {f_x2}(
-                  {x2_0}-{x2_1})
+              <div className={cx("frac-equation")}>
+                <span className={cx("constant")}>{x_3} =</span>
+                <div className={cx("fragment")}>
+                  <div className={cx("numerator")}>
+                    {f_x0}({x2_1} - {x2_2}) + {f_x1}({x2_2} - {x2_0}) + {f_x2}(
+                    {x2_0}-{x2_1})
+                  </div>
+                  <div className={cx("denominator")}>
+                    2{f_x0}({x_1} - {x_2}) + 2f({x_1})({x_2} - {x_0}) + 2f(
+                    {x_2})({x_0}- {x_1})
+                  </div>
                 </div>
-                <div className={cx("denominator")}>
-                  2{f_x0}({x_1} - {x_2}) + 2f({x_1})({x_2} - {x_0}) + 2f(
-                  {x_2})({x_0}- {x_1})
-                </div>
-                </div>
+                <div className={cx("result")}>= {data[0].f3}</div>
               </div>
               <br />
-              <span>= {data[0].f3}</span>
             </li>
             <li>
               <p className={cx("equation")}>

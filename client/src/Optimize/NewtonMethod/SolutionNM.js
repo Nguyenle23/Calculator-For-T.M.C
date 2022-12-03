@@ -31,9 +31,15 @@ export default function SolutionNM({ data, formula }) {
               </p>
             </li>
             <li>
-              <p className={cx("equation")}>
-                {x_i1} = {x_i} - f'(x)/f''(x) = {data[0].x0} - ({data[0].f_1st})/{data[0].f_2nd} = {data[1].x0}
-              </p>
+              <div className={cx("frac-equation")}>
+                <span className={cx("constant")}>{x_i1} =</span>
+                <div className={cx("object")}>{x_i} - </div>
+                <div className={cx("fragment")}>
+                  <div className={cx("numerator")}>f'(x)</div>
+                  <div className={cx("denominator")}>f''(x)</div>
+                </div>
+                <div className={cx("result")}>= {data[1].x0}</div>
+              </div>
             </li>
           </ul>
         </div>
@@ -41,11 +47,17 @@ export default function SolutionNM({ data, formula }) {
         <div className={cx("step-two")}>
           <h3>2. Check</h3>
           <ul className={cx("step-two-check")}>
+            <li>Ea &lt; Es (Stop condition)</li>
             <li>
-              Ea &lt; Es (Stop condition)
-            </li>
-            <li>
-              = |{x_i1} - {x_i}| / {x_i1} &lt; Es
+              <div className={cx("frac-equation")}>
+                <div className={cx("fragment")}>
+                  <div className={cx("numerator")}>
+                    |{x_i1} - {x_i}|
+                  </div>
+                  <div className={cx("denominator")}>{x_i1}</div>
+                </div>
+                <div className={cx("result")}>&lt; Es</div>
+              </div>
             </li>
           </ul>
         </div>
