@@ -99,9 +99,6 @@ export default function ParabolicInterpolation() {
             name="x1"
             onChange={handleChange}
           />
-        </div>
-
-        <div className={cx("variables")}>
           <i className={cx("input-symbol")}>
             x<sub>2</sub>
           </i>
@@ -112,6 +109,10 @@ export default function ParabolicInterpolation() {
             name="x2"
             onChange={handleChange}
           />
+        </div>
+
+        <div className={cx("variables")}>
+
         </div>
 
         <div className={cx("types")}>

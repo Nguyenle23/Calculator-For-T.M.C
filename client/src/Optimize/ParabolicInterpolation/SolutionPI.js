@@ -6,6 +6,7 @@ import classNames from "classnames/bind";
 const cx = classNames.bind(styles);
 
 export default function SolutionPI({ data }) {
+  console.log(data)
   const { f_x0, f_x1, f_x2, f_x3, x_0, x_1, x_2, x_3, x2_1, x2_2, x2_0 } =
     variables;
   return (
@@ -18,7 +19,7 @@ export default function SolutionPI({ data }) {
           <ul className={cx("step-one-calculate")}>
             <li>
               <p className={cx("equation")}>
-                {f_x0} = {data[0].f0}
+                {f_x0} = {data[0].fx}
               </p>
             </li>
             <li>
@@ -32,15 +33,20 @@ export default function SolutionPI({ data }) {
               </p>
             </li>
             <li>
-              <p className={cx("equation")}>{x_3} =</p>
-              <div className={cx("numerator")}>
-                {f_x0}({x2_1} - {x2_2}) + {f_x1}({x2_2} - {x2_0}) + {f_x2}(
-                {x2_0}-{x2_1})
+              <div className={cx("equation")}>
+                <p className={cx("constant")}>{x_3} =</p>
+                <div className={cx("formula")}>
+                <div className={cx("numerator")}>
+                  {f_x0}({x2_1} - {x2_2}) + {f_x1}({x2_2} - {x2_0}) + {f_x2}(
+                  {x2_0}-{x2_1})
+                </div>
+                <div className={cx("denominator")}>
+                  2{f_x0}({x_1} - {x_2}) + 2f({x_1})({x_2} - {x_0}) + 2f(
+                  {x_2})({x_0}- {x_1})
+                </div>
+                </div>
               </div>
-              <div className={cx("denominator")}>
-                2{f_x0}({x_1} - {x_2}) + 2f({x_1})({x_2} - {x_0}) + 2f(
-                {x_2})({x_0}- {x_1})
-              </div>
+              <br />
               <span>= {data[0].f3}</span>
             </li>
             <li>
@@ -87,7 +93,7 @@ export default function SolutionPI({ data }) {
               <tr className={cx("step-four-row")}>
                 <td className={cx("step-four-table-data")}>{data.iterator}</td>
                 <td className={cx("step-four-table-data")}>{data.x0}</td>
-                <td className={cx("step-four-table-data")}>{data.f0}</td>
+                <td className={cx("step-four-table-data")}>{data.fx}</td>
                 <td className={cx("step-four-table-data")}>{data.x1}</td>
                 <td className={cx("step-four-table-data")}>{data.f1}</td>
                 <td className={cx("step-four-table-data")}>{data.x2}</td>

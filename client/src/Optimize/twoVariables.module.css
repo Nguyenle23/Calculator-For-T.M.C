@@ -20,7 +20,7 @@
 .error,
 .types {
   position: relative;
-  width: 30%;
+  width: 50%;
   margin-bottom: 16px;
 }
 
@@ -29,12 +29,12 @@
 }
 
 .algorithm-function {
-  width: 24rem;
+  width: 28rem;
 }
 
 .algorithm-variable {
   width: 8rem;
-  margin-right: 16px;
+  margin-right: 2rem;
 }
 
 .algorithm-error {
@@ -54,7 +54,7 @@
 }
 
 .algorithm-submit {
-  width: 24rem;
+  width: 28rem;
   height: 40px;
   border-radius: 8px;
   border: none;
@@ -107,6 +107,20 @@
 .step-four-table {
   font-weight: 300;
   margin: 10px 36px;
+}
+
+.equation {
+  position: relative;
+}
+
+.formula {
+  position: absolute;
+  top: 0;
+  left: 5%
+}
+
+.constant {
+  /* position: absolute; */
 }
 
 .numerator,

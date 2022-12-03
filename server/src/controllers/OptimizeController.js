@@ -189,10 +189,6 @@ module.exports = {
         return res.status(400).json("Please enter maximum or minimum");
       }
 
-      if (es == 0) {
-        return res.status(400).json("Please choose a value for Es different from 0");
-      }
-
       if (/([-+*\/=]?)(?:(\d+)(x?)|()(x))/g.test(equationInput) === false) {
         return res.status(400).json("Please enter a valid equation");
       }
