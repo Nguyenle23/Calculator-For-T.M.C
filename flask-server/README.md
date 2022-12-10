@@ -1,1 +1,1 @@
-# Flask - calculated application
+# Flask server - calculated application
