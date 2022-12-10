@@ -56,7 +56,15 @@ export default function SolutionNM({ data, formula }) {
                   </div>
                   <div className={cx("denominator")}>{x_i1}</div>
                 </div>
-                <div className={cx("result")}>&lt; Es</div>
+                =
+                <div className={cx("fragment")}>
+                  <div className={cx("numerator")}>
+                    |{data[1].x0} - {data[0].x0}|
+                  </div>
+                  <div className={cx("denominator")}>{data[1].x0}</div>
+                </div>
+                = {data[1].ea}
+                <div className={cx("result")}>&gt; Es (Greater than condition -&gt; Continue)</div>
               </div>
             </li>
           </ul>

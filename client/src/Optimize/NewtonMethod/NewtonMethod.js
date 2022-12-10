@@ -34,8 +34,10 @@ export default function NewtonMethod() {
     const getTest = async () => {
       try {
         await axios
-          .post("http://localhost:4000/optimize/newtonMethod", inputData)
+          // .post("http://localhost:4000/optimize/newtonMethod", inputData)        //For NodeJS server
+          .post("http://localhost:5000/optimize/newtonMethod", inputData)           //For Flask server
           .then((res) => {
+            console.log(res)
             setFormula([
               res.data.formula,
               res.data.firtDeri,
