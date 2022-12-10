@@ -1,14 +1,10 @@
 from flask import Flask
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify
 
 app = Flask(__name__)  
 
-def not_found(param):
-  message = {
-      'status': 404,
-      'message': 'Not found user with ID: ' + param,
-  }
-  resp = jsonify(message)
-  resp.status_code = 404
-
-  return resp
+def error_handling(code):
+  if code == 400:
+    return jsonify({"message": "Please fill in the following fields"}), 400
+  elif code == 500:
+    return jsonify({"message": "Please checking the input equaiton"}), 500
