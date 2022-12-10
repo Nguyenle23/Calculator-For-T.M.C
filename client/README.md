@@ -1,1 +1,1 @@
-# app-cal
+# Client - calculated application
