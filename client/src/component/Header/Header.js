@@ -4,15 +4,13 @@ import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
 
-function Header() {
+export default function Header() {
   return (
     <div className={cx("header")}>
       <div className={cx("header-brand")}>
-        <span>Something . . .</span>
+        <span>TMC</span>
       </div>
       <div className={cx("header-search")}>Search here...</div>
     </div>
   );
 }
-
-export default Header;

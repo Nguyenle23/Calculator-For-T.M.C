@@ -4,13 +4,11 @@ import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
 
-function Navlink({ link }) {
+export default function Navlink({ link }) {
   return (
     <div className={cx("nav-link")}>
-      <a href="/">Home</a> &nbsp; &gt; &nbsp; {link.parent} &nbsp; &gt; &nbsp;{" "}
+      <a href="/">Home</a> &nbsp; &gt; &nbsp; <a href="/">{link.parent}</a> &nbsp; &gt; &nbsp;{" "}
       {link.children}
     </div>
   );
 }
-
-export default Navlink;

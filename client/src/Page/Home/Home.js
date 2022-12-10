@@ -6,7 +6,7 @@ import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
 
-function Home() {
+export default function Home() {
   const navigator = useNavigate();
   const [open, setOpen] = useState({ status: false, id: -1 });
 
@@ -25,10 +25,13 @@ function Home() {
               }}
               className={cx("table-section-row-container")}
             >
-              <th className={cx("table-section-row")}>{section.sectName}</th>
+              <th className={cx("table-section-row")}>
+                <ul>
+                  <li>{section.sectName}</li>
+                </ul>
+              </th>
             </tr>
             {index === open.id &&
-              open.status &&
               section.navList.map((nav, index) => (
                 <tr className={cx("table-section-subrow-container")}>
                   <th className={cx("table-section-subrow")}>
@@ -56,5 +59,3 @@ function Home() {
     </div>
   );
 }
-
-export default Home;
