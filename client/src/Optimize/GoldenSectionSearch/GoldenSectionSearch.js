@@ -33,7 +33,8 @@ export default function GoldenSectionSearch() {
     const getTest = async () => {
       try {
         await axios
-          .post("http://localhost:4000/optimize/goldenSectionSearch", inputData)
+          // .post("http://localhost:4000/optimize/goldenSectionSearch", inputData)     //For NodeJS
+          .post("http://localhost:5000/optimize/goldenSectionSearch", inputData)       //For Flask
           .then((res) => {
             setData(res.data.data);
             setStatus(true);
@@ -69,7 +70,7 @@ export default function GoldenSectionSearch() {
             title=" correct format: x^5 - 5*x^4 + x^3- 6*x^2+7*x+10 "
             type="text"
             className={cx("algorithm-function")}
-            name="equation"
+            name="equationInput"
             onChange={handleChange}
             required
           />
