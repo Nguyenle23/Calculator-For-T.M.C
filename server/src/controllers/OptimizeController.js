@@ -2,7 +2,7 @@ const math = require("mathjs");
 
 module.exports = {
   goldenSectionSearch: (req, res) => {
-    let equationInput = req.body.equation;
+    let equationInput = req.body.equationInput;
     let x_l = req.body.xl;
     let x_u = req.body.xu;
     let es = req.body.es;
