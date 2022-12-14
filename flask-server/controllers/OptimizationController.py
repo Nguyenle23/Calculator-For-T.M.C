@@ -50,10 +50,10 @@ class OptimizationController:
               if i == 0:
                 element = {
                   "iterator": i,
-                  "x0": '{:10.4f}'.format(x0),
-                  "fx": '{:10.4f}'.format(originFunc),
-                  "f_1st": '{:10.4f}'.format(firstDeriFunc),
-                  "f_2nd": '{:10.4f}'.format(secondDeriFunc),
+                  "x0": '{:.4f}'.format(x0),
+                  "fx": '{:.4f}'.format(originFunc),
+                  "f_1st": '{:.4f}'.format(firstDeriFunc),
+                  "f_2nd": '{:.4f}'.format(secondDeriFunc),
                   "ea": 100,
                 }
                 obj.append(element)
@@ -66,11 +66,11 @@ class OptimizationController:
                 ea = abs((x_next - x0) / x_next)
                 element = {
                   "iterator": i,
-                  "x0": '{:10.4f}'.format(x0),
-                  "fx": '{:10.4f}'.format(originFunc),
-                  "f_1st": '{:10.4f}'.format(firstDeriFunc),
-                  "f_2nd": '{:10.4f}'.format(secondDeriFunc),
-                  "ea": '{:10.4f}'.format(ea),
+                  "x0": '{:.4f}'.format(x0),
+                  "fx": '{:.4f}'.format(originFunc),
+                  "f_1st": '{:.4f}'.format(firstDeriFunc),
+                  "f_2nd": '{:.4f}'.format(secondDeriFunc),
+                  "ea": '{:.4f}'.format(ea),
                 }
                 obj.append(element)
               if (ea < es): break
@@ -138,14 +138,14 @@ class OptimizationController:
               if i == 0:
                 element = {
                   "iterator": i,
-                  "xl": '{:10.4f}'.format(xl),
-                  "xu": '{:10.4f}'.format(xu),
-                  "d": '{:10.4f}'.format(d_constant),
-                  "x1": '{:10.4f}'.format(x1),
-                  "x2": '{:10.4f}'.format(x2),
-                  "f1": '{:10.4f}'.format(f1),
-                  "f2": '{:10.4f}'.format(f2),
-                  "ea": '{:10.4f}'.format(((1 - R_constant) * ((xu - xl) / x2) * 100)),
+                  "xl": '{:.4f}'.format(xl),
+                  "xu": '{:.4f}'.format(xu),
+                  "d": '{:.4f}'.format(d_constant),
+                  "x1": '{:.4f}'.format(x1),
+                  "x2": '{:.4f}'.format(x2),
+                  "f1": '{:.4f}'.format(f1),
+                  "f2": '{:.4f}'.format(f2),
+                  "ea": '{:.4f}'.format(((1 - R_constant) * ((xu - xl) / x2) * 100)),
                 }
                 obj.append(element)
               else:
@@ -183,14 +183,14 @@ class OptimizationController:
                 d_constant = D_constant(xl, xu)
                 element = {
                   "iterator": i,
-                  "xl": '{:10.5f}'.format(xl),
-                  "x2": '{:10.5f}'.format(x2),
-                  "f2": '{:10.5f}'.format(f2),
-                  "x1": '{:10.5f}'.format(x1),
-                  "f1": '{:10.5f}'.format(f1),
-                  "xu": '{:10.5f}'.format(xu),
-                  "d": '{:10.5f}'.format(d_constant),
-                  "ea": '{:10.5f}'.format(ea),
+                  "xl": '{:.5f}'.format(xl),
+                  "x2": '{:.5f}'.format(x2),
+                  "f2": '{:.5f}'.format(f2),
+                  "x1": '{:.5f}'.format(x1),
+                  "f1": '{:.5f}'.format(f1),
+                  "xu": '{:.5f}'.format(xu),
+                  "d": '{:.5f}'.format(d_constant),
+                  "ea": '{:.5f}'.format(ea),
                 }
                 obj.append(element)
               if (d_constant < es): break
