@@ -6,6 +6,7 @@ import Home from "./Page/Home/Home";
 import GoldenSectionSearch from "./Optimize/GoldenSectionSearch/GoldenSectionSearch";
 import NewtonMethod from "./Optimize/NewtonMethod/NewtonMethod";
 import ParabolicInterpolation from "./Optimize/ParabolicInterpolation/ParabolicInterpolation";
+import EulerMethod from "./ODE/EulerMethod/EulerMethod";
 
 export default function App() {
   return (
@@ -23,6 +24,8 @@ export default function App() {
           <Route path="/newtonMethod" element={<NewtonMethod />}></Route>
 
           <Route path="/parabolicInterpolation" element={<ParabolicInterpolation />}></Route>
+
+          <Route path="/eulerMethod" element={<EulerMethod />} />
         </Routes>
       </Router>
     </div>

@@ -17,7 +17,6 @@ export const algorithmData = [
       },
     ],
   },
-  //test
   {
     id: 1,
     sectName: "Non-linear",
@@ -36,7 +35,6 @@ export const algorithmData = [
       },
     ],
   },
-
   {
     id: 2,
     sectName: "Linear",
@@ -52,6 +50,16 @@ export const algorithmData = [
       {
         navName: "Parabolic Interpolation Method",
         navPath: "parabolicInterpolation",
+      },
+    ],
+  },
+  {
+    id: 3,
+    sectName: "Ordinary Differential Equations",
+    navList: [
+      {
+        navName: "Euler's Method",
+        navPath: "eulerMethod",
       },
     ],
   },

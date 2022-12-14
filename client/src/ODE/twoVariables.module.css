@@ -1,0 +1,162 @@
+.optimize-container {
+  margin-left: 120px;
+  margin-top: 40px;
+  max-width: var(--container-width);
+}
+
+.main-title {
+  font-size: 32px;
+}
+
+/* ====================== INPUT FIELD ====================== */
+
+.algorithm {
+  margin-bottom: 40px;
+  min-height: 300px;
+}
+
+.function,
+.variables,
+.error,
+.types {
+  position: relative;
+  width: 50%;
+  margin-bottom: 16px;
+}
+
+.types {
+  display: flex;
+}
+
+.algorithm-function {
+  width: 28rem;
+}
+
+.algorithm-variable {
+  width: 8rem;
+  margin-right: 2rem;
+}
+
+.algorithm-error {
+  width: 8rem;
+}
+
+.algorithm-type {
+  display: flex;
+  align-items: center;
+  min-width: 8rem;
+  font-size: 20px;
+}
+
+.algorithm-type > input {
+  width: 20px;
+  margin-right: 8px;
+}
+
+.algorithm-submit {
+  width: 28rem;
+  height: 40px;
+  border-radius: 8px;
+  border: none;
+  font-size: 20px;
+  background-color: #0d8cff;
+  color: white;
+  font-weight: 400;
+}
+
+.algorithm-submit:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.error-call {
+  color: #cc3300;
+  font-weight: 400;
+}
+
+
+.input-symbol {
+  position: absolute;
+  padding: 8px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+  background-color: var(--primary-color);
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  color: white;
+  text-align: center;
+  min-width: 40px;
+  max-height: 40px;
+}
+
+/* ====================================================== */
+
+/* ====================== SOLUTION ====================== */
+
+.step-one,
+.step-two,
+.step-three,
+.step-four {
+  margin-top: 16px;
+}
+
+.step-one-calculate,
+.step-two-check,
+.step-three-error,
+.step-four-table {
+  font-weight: 300;
+  margin: 10px 36px;
+}
+
+.frac-equation {
+ display: flex;
+ height: fit-content;
+ align-items: center;
+}
+
+.frac-equation > div {
+  margin: 4px;
+}
+
+.numerator,
+.denominator {
+  /* width: fit-content; */
+  text-align: center;
+}
+
+.numerator {
+  border-bottom: 1px solid white;
+
+}
+
+.step-four-table {
+  width: 60rem;
+}
+
+.step-four-table,
+.step-four-table-title,
+.step-four-table-data {
+  text-align: center;
+  border: 1px solid white;
+  border-collapse: collapse;
+}
+
+.step-four-table-tile,
+.step-four-table-data {
+  max-width: 40px;
+  overflow: scroll;
+  padding: 8px;
+  /* overflow-y: hidden;
+    overflow-x: hidden; */
+}
+
+.step-four-table-tile::-webkit-scrollbar {
+  display: none;
+}
+
+.step-four-table-data::-webkit-scrollbar {
+  display: none;
+}
+
+/* ====================================================== */
