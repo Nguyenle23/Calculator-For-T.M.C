@@ -8,7 +8,7 @@ export default function Header() {
   return (
     <div className={cx("header")}>
       <div className={cx("header-brand")}>
-        <span>TMC</span>
+        <a href="/">TMC</a>
       </div>
       <div className={cx("header-search")}>Search here...</div>
     </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import variables from "../Variables";
-import styles from "../../Optimize/twoVariables.module.css";
+import styles from "../../ODE/twoVariables.module.css";
 import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);

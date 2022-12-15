@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styles from "../../Optimize/twoVariables.module.css";
+import styles from "../../ODE/twoVariables.module.css";
 import Navlink from "../../component/Navlink/Navlink";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
@@ -96,7 +96,7 @@ export default function EulerMethod() {
           </label>
         </div>
 
-        {checkCondition == true && checkVari === "2" ? (
+        {checkCondition === true && checkVari === "2" ? (
           <>
             <div className={cx("function")}>
               <i className={cx("input-symbol")}>f(x)</i>
