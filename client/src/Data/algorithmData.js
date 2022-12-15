@@ -61,6 +61,10 @@ export const algorithmData = [
         navName: "Euler's Method",
         navPath: "eulerMethod",
       },
+      {
+        navName: "Heun's Method",
+        navPath: "heunMethod",
+      },
     ],
   },
 ];
